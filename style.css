@@ -7,7 +7,7 @@
   width: 100%;
   height: 100vh;
   display: flex;
-  background-color: #171717;
+  background: linear-gradient(20deg, #d17709fb -70%, #111 70%, #111 100%);
   font-family: "Saira", sans-serif;
 }
 
@@ -15,7 +15,7 @@
 
 .sidebar {
   width: 260px;
-  background: #242527;
+  background: linear-gradient(to bottom, #6c5840fb -70%, #111 70%);
   color: #fff;
   height: 100vh;
 }
@@ -47,7 +47,8 @@
   text-align: center;
   font-size: 20px;
   height: 30px;
-  font-weight: 700;
+  color: #d17609;
+  font-weight: 900;
 }
 
 .sidebar ul {
@@ -57,19 +58,23 @@
 }
 
 .sidebar ul li {
-  padding: 14px 20px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .sidebar ul li:hover {
   background: #333;
+  border-left: 2px solid #d17609;
+  color: #d17609;
 }
 
 .sidebar ul li a {
   text-decoration: none;
+  padding: 14px 20px;
   color: inherit;
   display: block;
+  font-size: 13px;
+  font-weight: 600;
 }
 .the-main-content {
   width: 100%;
@@ -85,7 +90,6 @@
   align-items: center;
   padding: 10px 0px;
   width: 100%;
-  background-color: #100f0e;
 }
 
 .header-left {
@@ -122,11 +126,13 @@
   display: flex;
   align-items: center;
   width: 400px;
-  border: 2px solid #d17609;
-  background-color: transparent;
+  background: rgba(255, 102, 0, 0.1);
   padding: 6px 12px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+  transition: 0.3s;
 }
 
 .search-icon {
@@ -241,8 +247,6 @@
   .search-container {
     width: 20px;
     padding: 6px;
-    border-bottom-left-radius: 14px;
-    border-top-right-radius: 14px;
   }
   .search-shortcut {
     display: none;
@@ -298,7 +302,7 @@
 }
 
 .icon-s {
-  fill: #bab7b3;
+  fill: #d17609;
 }
 
 .grid-4 {
@@ -309,17 +313,66 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.card {
-  border: 2px solid #d17609;
+.grid-2 .card h2 {
+  color: #fc8d06c0;
+  margin-bottom: 5px;
+}
+
+.grid-2 .card ul {
+  border: 2px dotted orange;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.grid-2 .card li {
   color: white;
-  background-color: #333333c5;
-  padding: 10px;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  font-weight: 400;
+  padding: 5px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+
+.yellow {
+  background-color: rgba(255, 255, 0, 0.272);
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.272);
+}
+
+.green {
+  background-color: rgba(0, 128, 0, 0.272);
+}
+
+.blue {
+  background-color: rgba(0, 0, 255, 0.272);
+}
+
+.card,
+.cus-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.card p {
+  color: #fc8d06c0;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.card strong {
+  color: white;
+  font-size: 20px;
 }
 
 .card:hover {
-  background-color: #616060eb;
+  background: rgba(255, 102, 0, 0.3);
+  cursor: pointer;
 }
 
 .grid-2 .card ul {
@@ -331,6 +384,21 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
+  .card {
+    padding-left: 10px;
+  }
+
+  .card p {
+    color: #fc8d06c0;
+    font-size: 10px;
+    margin-top: 5px;
+    font-weight: 600;
+  }
+
+  .card strong {
+    color: white;
+    font-size: 14px;
+  }
   .grid-2 {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
@@ -341,43 +409,40 @@
 /* Page Content */
 .cus-content {
   margin: auto;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   flex: 1;
   transition: margin-left 0.3s ease;
   width: 90%;
+  height: 88%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.cus-card {
+  margin-bottom: 30px;
 }
 h1 {
   margin-top: 0;
   color: #d17609;
 }
 
-p {
-  color: #845f33;
+.cus-content p {
+  color: white;
   margin-bottom: 20px;
   font-weight: 400;
 }
 
 /* Card Layout */
-.cus-card {
-  border: 2px solid #d17609;
-  color: white;
-  background-color: #333333c5;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .cus-card h3 {
   margin-top: 0;
+  color: #d17609;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 /* Form */
 .cus-form-group {
+  width: 95%;
   margin-bottom: 12px;
-  display: flex;
 }
 
 .cus-form-group button {
@@ -387,23 +452,34 @@ p {
   display: block;
   margin-bottom: 6px;
   margin-right: 10px;
+  font-size: 14px;
   font-weight: bold;
+  color: #ffffff;
 }
 .cus-form-group input,
 .cus-form-group select {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+  border-radius: 6px;
+  background: #1a1a1aab;
+  padding: 10px;
+  color: #fff;
+  transition: 0.3s;
 }
+.cus-card label {
+  color: white;
+}
+
 .cus-card button {
   background: #515358;
   color: #fff;
   border: none;
   padding: 10px 16px;
+  margin-top: 20px;
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-bottom: 10px;
 }
 .cus-card button:hover {
   background: #333;
@@ -411,26 +487,37 @@ p {
 
 .cus-card ul {
   list-style: none;
+
+  color: white;
 }
 
 /* Table */
 .cus-table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  overflow: auto;
 }
-.cus-table,
-.cus-table th,
-.cus-table td {
-  border: 1px solid #ddd;
-}
+
 .cus-table th,
 .cus-table td {
   padding: 10px;
   text-align: left;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+  color: white;
 }
 .cus-table th {
-  background: #d17709b9;
+  background: rgba(255, 102, 0, 0.2);
+  color: #ff6600;
+}
+
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .cus-t {
@@ -443,48 +530,53 @@ p {
 }
 
 /************************* VEHICLE MANAGEMENT STYLE  */
+
 /************************* VEHICLE MANAGEMENT STYLE  */
 
 /* Page Content */
 .veh-content {
   margin: auto;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   flex: 1;
   transition: margin-left 0.3s ease;
   width: 90%;
+  height: 88%;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 h1 {
   margin-top: 0;
   color: #d17609;
 }
 
-p {
-  color: #845f33;
+.veh-content p {
+  color: white;
   margin-bottom: 20px;
   font-weight: 400;
 }
 
 /* Card Layout */
 .veh-card {
-  border: 2px solid #d17609;
-  color: white;
-  background-color: #333333c5;
+  flex: 1;
   padding: 20px;
-  margin-bottom: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  margin-bottom: 30px;
 }
 
 .veh-card h3 {
   margin-top: 0;
+  color: #d17609;
   margin-bottom: 10px;
+  font-size: 16px;
 }
 
 /* Form */
 .veh-form-group {
+  width: 95%;
   margin-bottom: 12px;
-  display: flex;
 }
 
 .veh-form-group button {
@@ -494,24 +586,34 @@ p {
   display: block;
   margin-bottom: 6px;
   margin-right: 10px;
+  font-size: 10px;
   font-weight: bold;
+  color: #ffffff;
 }
 .veh-form-group input,
 .veh-form-group select {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+  border-radius: 6px;
+  background: #1a1a1aab;
+  padding: 10px;
+  color: #fff;
+  transition: 0.3s;
 }
+.veh-card label {
+  color: white;
+}
+
 .veh-card button {
   background: #515358;
   color: #fff;
   border: none;
   padding: 10px 16px;
+  margin-top: 20px;
   border-radius: 4px;
-  margin-top: 10px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-bottom: 10px;
 }
 .veh-card button:hover {
   background: #333;
@@ -519,26 +621,35 @@ p {
 
 .veh-card ul {
   list-style: none;
+  color: white;
 }
 
 /* Table */
 .veh-table {
   width: 100%;
-  border-collapse: collapse;
   margin-top: 10px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  overflow: auto;
 }
-.veh-table,
+
 .veh-table th,
 .veh-table td {
-  border: 1px solid #ddd;
-}
-.veh-table th,
-.veh-table td {
-  padding: 10px;
+  padding: 12px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: left;
+  font-size: 14px;
+  color: white;
 }
 .veh-table th {
-  background: #d17709b9;
+  background: rgba(255, 102, 0, 0.2);
+  color: #ff6600;
+}
+
+.veh-table tr:nth-cscreenhild(even) {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .veh-t {
@@ -548,4 +659,7 @@ p {
 
 .veh-edit-btn {
   margin-bottom: 10px;
+}
+
+@media (max-width) {
 }
