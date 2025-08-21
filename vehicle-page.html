@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar" id="sidebar">
+        <div class="nav-holder">
+          <h2>Cruise Care</h2>
+          <button class="close-btn" id="closeBtn">✖</button>
+        </div>
+        <ul>
+          <li><a href="./customer-page.html">Customer Management</a></li>
+          <li><a href="./vehicle-page.html">Vehicle Management</a></li>
+          <li><a href="#">Service & Work Tracking</a></li>
+          <li><a href="#">Notification System</a></li>
+          <li><a href="#">Payments & Billing</a></li>
+          <li><a href="#">Admin Dashboard</a></li>
+          <li><a href="#">Customer Portal (optional)</a></li>
+          <li><a href="#">Mechanic Portal</a></li>
+        </ul>
+      </div>
+      <div class="the-main-content">
+        <div class="rv the-background">Cruise Care</div>
+        <div class="rv the-content">
+          <!-- header -->
+          <header class="header">
+            <div class="header-left">
+              <button class="menu-button" id="menuBtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-menu"
+                >
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+              <div class="search-container">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-search search-icon"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  class="search-input"
+                />
+                <span class="search-shortcut">Ctrl + k</span>
+              </div>
+            </div>
+            <div class="header-right">
+              <button class="icon-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-bell"
+                >
+                  <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+              </button>
+              <button class="icon-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-sun"
+                >
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+              </button>
+              <div class="user-profile">
+                <img
+                  src="./images /user-Icon folder/images (2).png"
+                  alt="User Profile"
+                  class="profile-avatar"
+                />
+                <span class="profile-name"></span>
+              </div>
+            </div>
+          </header>
+          <div class="veh-content">
+            <h1>🚗 Vehicle Management</h1>
+            <p>
+              Manage all registered vehicles, link them to customers, and track
+              maintenance schedules.
+            </p>
+
+            <!-- Vehicle Search -->
+            <div class="veh-card">
+              <h3>Search Vehicles</h3>
+              <div class="veh-form-group">
+                <input
+                  type="text"
+                  id="vehSearchInput"
+                  placeholder="Search by plate, VIN, make, or customer"
+                />
+                <button onclick="vehReloadTable()">🔄 Reload</button>
+              </div>
+
+              <div class="veh-t">
+                <table id="vehTable" class="veh-table">
+                  <tr>
+                    <th>Plate</th>
+                    <th>VIN</th>
+                    <th>Make & Model</th>
+                    <th>Year</th>
+                    <th>Customer</th>
+                    <th>Actions</th>
+                  </tr>
+                  <tr>
+                    <td>ABC-123</td>
+                    <td>1HGCM82633A123456</td>
+                    <td>Toyota Corolla</td>
+                    <td>2019</td>
+                    <td>John Doe</td>
+                    <td><button class="veh-edit-btn">View</button></td>
+                  </tr>
+                  <tr>
+                    <td>KJA-567</td>
+                    <td>WBA3A5C50DF123789</td>
+                    <td>BMW X5</td>
+                    <td>2021</td>
+                    <td>Mary Smith</td>
+                    <td><button class="veh-edit-btn">View</button></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Vehicle Profile -->
+            <div class="veh-card">
+              <h3>Vehicle Profile</h3>
+              <div class="veh-form-group">
+                <label>Make</label>
+                <input type="text" placeholder="e.g. Toyota" />
+              </div>
+              <div class="veh-form-group">
+                <label>Model</label>
+                <input type="text" placeholder="e.g. Corolla" />
+              </div>
+              <div class="veh-form-group">
+                <label>Year</label>
+                <input type="number" placeholder="e.g. 2020" />
+              </div>
+              <div class="veh-form-group">
+                <label>VIN / Chassis Number</label>
+                <input type="text" placeholder="Enter VIN" />
+              </div>
+              <div class="veh-form-group">
+                <label>License Plate</label>
+                <input type="text" placeholder="Enter Plate Number" />
+              </div>
+              <div class="veh-form-group">
+                <label>Engine Type</label>
+                <input type="text" placeholder="e.g. V6, Inline-4" />
+              </div>
+              <div class="veh-form-group">
+                <label>Fuel Type</label>
+                <select>
+                  <option>Petrol</option>
+                  <option>Diesel</option>
+                  <option>Electric</option>
+                  <option>Hybrid</option>
+                </select>
+              </div>
+              <div class="veh-form-group">
+                <label>Color</label>
+                <input type="text" placeholder="e.g. White" />
+              </div>
+              <div class="veh-form-group">
+                <label>Mileage</label>
+                <input type="number" placeholder="Enter Mileage (km)" />
+              </div>
+              <div class="veh-form-group">
+                <label>Linked Customer</label>
+                <input type="text" placeholder="Select/Enter Customer Name" />
+              </div>
+              <button>Save Vehicle</button>
+            </div>
+
+            <!-- Service Schedule -->
+            <div class="veh-card">
+              <h3>Service Schedule</h3>
+              <div class="veh-t">
+                <table class="veh-table">
+                  <tr>
+                    <th>Service</th>
+                    <th>Interval</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>Oil Change</td>
+                    <td>Every 5,000 km</td>
+                    <td>Pending</td>
+                  </tr>
+                  <tr>
+                    <td>Brake Check</td>
+                    <td>Every 10,000 km</td>
+                    <td>Completed</td>
+                  </tr>
+                </table>
+              </div>
+              <button>Add Custom Schedule</button>
+            </div>
+
+            <!-- Error/Issue Tracking -->
+            <div class="veh-card">
+              <h3>Error / Issue Tracking</h3>
+              <div class="veh-t">
+                <table class="veh-table">
+                  <tr>
+                    <th>Date</th>
+                    <th>Issue</th>
+                    <th>Reported By</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>2025-08-10</td>
+                    <td>Engine Noise</td>
+                    <td>Customer</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>2025-08-15</td>
+                    <td>AC Not Cooling</td>
+                    <td>Mechanic</td>
+                    <td>In Progress</td>
+                  </tr>
+                </table>
+              </div>
+              <button>Report New Issue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

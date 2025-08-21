@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar" id="sidebar">
+        <div class="nav-holder">
+          <h2>Cruise Care</h2>
+          <button class="close-btn" id="closeBtn">✖</button>
+        </div>
+        <ul>
+          <li><a href="./customer-page.html">Customer Management</a></li>
+          <li><a href="./vehicle-page.html">Vehicle Management</a></li>
+          <li><a href="#">Service & Work Tracking</a></li>
+          <li><a href="#">Notification System</a></li>
+          <li><a href="#">Payments & Billing</a></li>
+          <li><a href="#">Admin Dashboard</a></li>
+          <li><a href="#">Customer Portal (optional)</a></li>
+          <li><a href="#">Mechanic Portal</a></li>
+        </ul>
+      </div>
+      <div class="the-main-content">
+        <div class="rv the-background">Cruise Care</div>
+        <div class="rv the-content">
+          <!-- header -->
+          <header class="header">
+            <div class="header-left">
+              <button class="menu-button" id="menuBtn">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-menu"
+                >
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+              </button>
+              <div class="search-container">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-search search-icon"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  class="search-input"
+                />
+                <span class="search-shortcut">Ctrl + k</span>
+              </div>
+            </div>
+            <div class="header-right">
+              <button class="icon-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-bell"
+                >
+                  <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+              </button>
+              <button class="icon-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-sun"
+                >
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="1" x2="12" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="23"></line>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                  <line x1="1" y1="12" x2="3" y2="12"></line>
+                  <line x1="21" y1="12" x2="23" y2="12"></line>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+              </button>
+              <div class="user-profile">
+                <img
+                  src="./images /user-Icon folder/images (2).png"
+                  alt="User Profile"
+                  class="profile-avatar"
+                />
+                <span class="profile-name"></span>
+              </div>
+            </div>
+          </header>
+          <div class="cus-content" id="cusContent">
+            <h1>Customer Management</h1>
+            <p>Manage all customer information, vehicles, and reminders.</p>
+
+            <!-- Customer Search -->
+            <div class="cus-card">
+              <h3>Search Customers</h3>
+              <div class="cus-form-group cus-top">
+                <input
+                  type="text"
+                  id="cusSearchInput"
+                  placeholder="Search by name, phone, or email"
+                />
+                <button>reload</button>
+              </div>
+              <div class="cus-t">
+                <table class="cus-table" id="cusCustomerTable">
+                  <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Vehicles</th>
+                    <th>Actions</th>
+                  </tr>
+                  <tr>
+                    <td>John Doe</td>
+                    <td>+234 8012345678</td>
+                    <td>john@example.com</td>
+                    <td>2</td>
+                    <td><button>View</button></td>
+                  </tr>
+                  <tr>
+                    <td>Mary Smith</td>
+                    <td>+234 8098765432</td>
+                    <td>mary@example.com</td>
+                    <td>1</td>
+                    <td><button>View</button></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Customer Profile -->
+            <div class="cus-card">
+              <h3>Customer Profile</h3>
+              <div class="cus-form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Enter customer name" />
+              </div>
+              <div class="cus-form-group">
+                <label>Phone</label>
+                <input type="text" placeholder="Enter phone number" />
+              </div>
+              <div class="cus-form-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter email" />
+              </div>
+              <div class="cus-form-group">
+                <label>Address</label>
+                <input type="text" placeholder="Enter address" />
+              </div>
+              <div class="cus-form-group">
+                <label>Preferred Contact</label>
+                <select>
+                  <option>SMS</option>
+                  <option>Email</option>
+                  <option>WhatsApp</option>
+                </select>
+              </div>
+              <button>Save Customer</button>
+            </div>
+
+            <!-- Vehicle Association -->
+            <div class="cus-card">
+              <h3>Vehicles Linked to Customer</h3>
+              <button>Add Vehicle</button>
+              <div class="cus-t">
+                <table class="cus-table">
+                  <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Plate</th>
+                    <th>Mileage</th>
+                    <th>Actions</th>
+                  </tr>
+                  <tr>
+                    <td>Toyota</td>
+                    <td>Camry</td>
+                    <td>2020</td>
+                    <td>ABC-123</td>
+                    <td>25,000 km</td>
+                    <td>
+                      <button class="cus-edit-btn">Edit</button>
+                      <button>Delete</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Communication Preferences -->
+            <div class="cus-card">
+              <h3>Communication Preferences</h3>
+              <label><input type="checkbox" checked /> SMS</label><br />
+              <label><input type="checkbox" /> Email</label><br />
+              <label><input type="checkbox" /> WhatsApp</label>
+            </div>
+
+            <!-- Reminders -->
+            <div class="cus-card">
+              <h3>Reminders</h3>
+              <button>Add Reminder</button>
+              <ul>
+                <li>Oil Change – every 5,000 km</li>
+                <li>Insurance Renewal – 01/02/2026</li>
+              </ul>
+            </div>
+
+            <!-- Notification Log -->
+            <div class="cus-card cus-t">
+              <h3>Notification Log</h3>
+              <div class="cus-t">
+                <table class="cus-table">
+                  <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>2025-08-15</td>
+                    <td>Oil Change Reminder</td>
+                    <td>Sent</td>
+                  </tr>
+                  <tr>
+                    <td>2025-08-10</td>
+                    <td>Insurance Renewal</td>
+                    <td>Delivered</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
