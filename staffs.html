@@ -25,14 +25,14 @@
           <li><a href="./customer-page.html">Customer Management</a></li>
           <li><a href="./vehicle-page.html">Vehicle Management</a></li>
           <li>
-            <a href="./service-and-work-tracking.html"
-              >Service & Work Tracking</a
-            >
+            <a href="service-and-work-tracking.html">Service & Work Tracking</a>
           </li>
-          <li><a href="#">Notification System</a></li>
-          <li><a href="#">Payments & Billing</a></li>
+          <li>
+            <a href="./notification-scheduling.html">Notification System</a>
+          </li>
+          <li><a href="">Payments & Billing</a></li>
           <li><a href="#">Customer Portal (optional)</a></li>
-          <li><a href="#">Mechanic Portal</a></li>
+          <li><a href="./staffs.html">Staffs</a></li>
         </ul>
       </div>
       <div class="the-main-content">
@@ -135,147 +135,79 @@
               </div>
             </div>
           </header>
-          <div class="cus-content" id="cusContent">
-            <h1>Customer Management</h1>
-            <p>Manage all customer information, vehicles, and reminders.</p>
-
-            <!-- Customer Search -->
-            <div class="cus-card">
-              <h3>Search Customers</h3>
-              <div class="cus-form-group cus-top">
-                <input
-                  type="text"
-                  id="cusSearchInput"
-                  placeholder="Search by name, phone, or email"
-                />
-                <button>reload</button>
-              </div>
-              <div class="cus-t">
-                <table class="cus-table" id="cusCustomerTable">
-                  <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Vehicles</th>
-                    <th>Actions</th>
-                  </tr>
-                  <tr>
-                    <td>John Doe</td>
-                    <td>+234 8012345678</td>
-                    <td>john@example.com</td>
-                    <td>2</td>
-                    <td><button>View</button></td>
-                  </tr>
-                  <tr>
-                    <td>Mary Smith</td>
-                    <td>+234 8098765432</td>
-                    <td>mary@example.com</td>
-                    <td>1</td>
-                    <td><button>View</button></td>
-                  </tr>
-                </table>
-              </div>
+          <!-- 🔹 Page 5: Notifications & Scheduling -->
+          <div class="mechanics-page">
+            <!-- Top bar: search + add button -->
+            <div class="mech-top-bar">
+              <input
+                type="text"
+                placeholder="🔍 Search mechanics or work..."
+                class="search-mech"
+              />
+              <button class="add-btn" onclick="openAddMechanicForm()">
+                ➕ Add Mechanic
+              </button>
             </div>
 
-            <!-- Customer Profile -->
-            <div class="cus-card">
-              <h3>Customer Profile</h3>
-              <div class="cus-form-group">
-                <label>Name</label>
-                <input type="text" placeholder="Enter customer name" />
-              </div>
-              <div class="cus-form-group">
+            <!-- Table of mechanics -->
+            <table class="mech-table">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Phone</th>
+                  <th>Role</th>
+                  <th>Jobs Done</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="mechTableBody">
+                <!-- Dynamic rows (example) -->
+                <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>+234 800 123 4567</td>
+                  <td>Senior Mechanic</td>
+                  <td>
+                    <button class="view-jobs-btn" onclick="viewJobs(1)">
+                      View (12)
+                    </button>
+                  </td>
+                  <td>
+                    <button class="edit-btn">✏️</button>
+                    <button class="delete-btn">🗑️</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Add Mechanic Form (popup modal) -->
+          <div class="modal" id="addMechanicModal">
+            <div class="modal-content">
+              <h2>Add New Mechanic</h2>
+              <form id="addMechanicForm">
+                <label>First Name</label>
+                <input type="text" required />
+
+                <label>Last Name</label>
+                <input type="text" required />
+
                 <label>Phone</label>
-                <input type="text" placeholder="Enter phone number" />
-              </div>
-              <div class="cus-form-group">
-                <label>Email</label>
-                <input type="email" placeholder="Enter email" />
-              </div>
-              <div class="cus-form-group">
-                <label>Address</label>
-                <input type="text" placeholder="Enter address" />
-              </div>
-              <div class="cus-form-group">
-                <label>Preferred Contact</label>
-                <select>
-                  <option>SMS</option>
-                  <option>Email</option>
-                  <option>WhatsApp</option>
-                </select>
-              </div>
-              <button>Save Customer</button>
-            </div>
+                <input type="tel" required />
 
-            <!-- Vehicle Association -->
-            <div class="cus-card">
-              <h3>Vehicles Linked to Customer</h3>
-              <button>Add Vehicle</button>
-              <div class="cus-t">
-                <table class="cus-table">
-                  <tr>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Year</th>
-                    <th>Plate</th>
-                    <th>Mileage</th>
-                    <th>Actions</th>
-                  </tr>
-                  <tr>
-                    <td>Toyota</td>
-                    <td>Camry</td>
-                    <td>2020</td>
-                    <td>ABC-123</td>
-                    <td>25,000 km</td>
-                    <td>
-                      <button class="cus-edit-btn">Edit</button>
-                      <button>Delete</button>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+                <label>Role</label>
+                <input type="text" required />
 
-            <!-- Communication Preferences -->
-            <div class="cus-card">
-              <h3>Communication Preferences</h3>
-              <label><input type="checkbox" checked /> SMS</label><br />
-              <label><input type="checkbox" /> Email</label><br />
-              <label><input type="checkbox" /> WhatsApp</label>
-            </div>
-
-            <!-- Reminders -->
-            <div class="cus-card">
-              <h3>Reminders</h3>
-              <button>Add Reminder</button>
-              <ul>
-                <li>Oil Change – every 5,000 km</li>
-                <li>Insurance Renewal – 01/02/2026</li>
-              </ul>
-            </div>
-
-            <!-- Notification Log -->
-            <div class="cus-card cus-t">
-              <h3>Notification Log</h3>
-              <div class="cus-t">
-                <table class="cus-table">
-                  <tr>
-                    <th>Date</th>
-                    <th>Type</th>
-                    <th>Status</th>
-                  </tr>
-                  <tr>
-                    <td>2025-08-15</td>
-                    <td>Oil Change Reminder</td>
-                    <td>Sent</td>
-                  </tr>
-                  <tr>
-                    <td>2025-08-10</td>
-                    <td>Insurance Renewal</td>
-                    <td>Delivered</td>
-                  </tr>
-                </table>
-              </div>
+                <button type="submit" class="save-btn">💾 Save</button>
+                <button
+                  type="button"
+                  class="cancel-btn"
+                  onclick="closeAddMechanicForm()"
+                >
+                  Cancel
+                </button>
+              </form>
             </div>
           </div>
         </div>
